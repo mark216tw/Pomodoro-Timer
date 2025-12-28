@@ -324,11 +324,20 @@ button:active {
 
 /* Theme Selector Styles */
 .theme-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     display: flex;
     gap: 8px;
+    justify-content: center;
+    margin: 0.8rem 0;
+}
+
+/* 桌面版：絕對定位在右上角 */
+@media (min-width: 481px) {
+    .theme-selector {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin: 0;
+    }
 }
 
 .theme-dot {
@@ -437,5 +446,17 @@ button:active {
 
     .timer-display {
         font-size: 4.5rem;
+    }
+
+    header {
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .settings {
+        gap: 1rem;
     }
 }
