@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好用的番茄時鐘 - 專注每一刻</title>
+    <meta name="description" content="一個簡潔、優雅的莫蘭迪色系番茄時鐘，助您提高效率。">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="mode-work">
+    <div class="container" id="app">
+        <div class="theme-selector">
+            <div class="theme-dot classic" data-t="classic" title="經典莫蘭迪"></div>
+            <div class="theme-dot ocean" data-t="ocean" title="北歐海洋"></div>
+            <div class="theme-dot forest" data-t="forest" title="鼠尾草森林"></div>
+            <div class="theme-dot terra" data-t="terra" title="陶土玫瑰"></div>
+            <div class="theme-dot midnight" data-t="midnight" title="午夜沉靜"></div>
+        </div>
+
+        <header>
+            <h1>好用的番茄時鐘</h1>
+            <div id="status-badge" class="status-badge">🍅 專注中</div>
+        </header>
+
+        <main>
+            <div class="settings">
+                <div class="input-group">
+                    <label for="work-duration">工作 (分)</label>
+                    <input type="number" id="work-duration" value="25" min="1" max="60">
+                </div>
+                <div class="input-group">
+                    <label for="break-duration">休息 (分)</label>
+                    <input type="number" id="break-duration" value="5" min="1" max="60">
+                </div>
+                <div class="input-group">
+                    <label for="sound-toggle">音效</label>
+                    <label class="switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="timer-display" id="timer">25:00</div>
+
+            <div class="controls">
+                <button id="start-btn" class="btn-primary">▶️ 開始</button>
+                <button id="pause-btn" style="display: none;">⏸ 暫停</button>
+                <button id="reset-btn">🔁 重置</button>
+            </div>
+        </main>
+
+        <footer class="stats-container">
+            <div class="stats-text">
+                已完成番茄數：<span id="pomo-count">0</span>
+            </div>
+            <button class="clear-btn" id="clear-stats-btn">清除紀錄</button>
+        </footer>
+    </div>
+
+    <!-- Custom Modal -->
+    <div class="modal-overlay" id="confirm-modal">
+        <div class="modal">
+            <h2>確認清除？</h2>
+            <p>這將會重置您目前累積的所有番茄時鐘紀錄，確定要刪除嗎？</p>
+            <div class="modal-actions">
+                <button id="modal-cancel">取消</button>
+                <button id="modal-confirm" class="btn-primary">確認刪除</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element (Base64 placeholder will be set in script) -->
+    <audio id="alert-sound" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
